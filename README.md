@@ -1,7 +1,7 @@
 # Markov_Python
 CodeAcademy.com Python project: Creates new lyrics using a Markov Chain
 
- Requires BeautifulSoup and urllib2
+ Requires BeautifulSoup and urllib2 and the three provided modules 'fetch_data', 'markov' and 'default_lists'.
 
 <B> Just run 'run_lyrics_generator.py' in Python (2.7) to run this program. </B>
 
