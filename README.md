@@ -3,7 +3,7 @@ CodeAcademy.com Python project: Creates new lyrics using a Markov Chain
 
  Requires BeautifulSoup and urllib2
 
-<B> Just run 'run_lyrics_generator.py' in Python (2.7) to run this program.
+<B> Just run 'run_lyrics_generator.py' in Python (2.7) to run this program. </B>
 
 This program will ask user for a source of data (default list for Morrissey and Suede provided); parse the html source to get the clean text, saves the text in files, create a Markov object then generate a new song using Markov chain. Average and standard deviations for the compilations of text are use to get similar lengths. Users can then save the files.
 
