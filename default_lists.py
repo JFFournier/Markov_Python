@@ -1,7 +1,10 @@
+""" By JFF. From Markov Project.
+This module simply lists default URLs for Morissey and Suede. Other lists could be added in a similar fashion."""
+
 def morrissey_url_list():
 	url_list = ['http://www.azlyrics.com/lyrics/morrissey/alsatiancousin.html'
-	, 'http://www.azlyrics.com/lyrics/morrissey/littlemanwhatnow.html']
-	""", 'http://www.azlyrics.com/lyrics/morrissey/everydayislikesunday.html'
+	, 'http://www.azlyrics.com/lyrics/morrissey/littlemanwhatnow.html'
+	, 'http://www.azlyrics.com/lyrics/morrissey/everydayislikesunday.html'
 	, 'http://www.azlyrics.com/lyrics/morrissey/bengaliinplatforms.html'
 	, 'http://www.azlyrics.com/lyrics/morrissey/angelangeldownwegotogether.html'
 	, 'http://www.azlyrics.com/lyrics/morrissey/latenightmaudlinstreet.html'
@@ -151,7 +154,7 @@ def morrissey_url_list():
 	, 'http://www.azlyrics.com/lyrics/morrissey/arthounds.html'
 	, 'http://www.azlyrics.com/lyrics/morrissey/satelliteoflove.html'
 	, 'http://www.azlyrics.com/lyrics/morrissey/vicarinatutu.html'
-	, 'http://www.azlyrics.com/lyrics/morrissey/yousayyoudontloveme.html']"""
+	, 'http://www.azlyrics.com/lyrics/morrissey/yousayyoudontloveme.html']
 	return url_list
 
 def suede_url_list():
