@@ -1,4 +1,5 @@
-""" This is the main module for markov chain Forgotten Morissey Song. It will:
+""" By JFF. From Markov Project.
+This is the main module for markov chain Forgotten Morissey Song. It will:
 	- Get artist/web
 	- Check if file input for probalistics exists.
 		- If not, run fetch_data
@@ -10,11 +11,14 @@
 	- write lyric
 		- import random.
 		- generate song length from average song length + or - random(0,stddev)
-		- random first word (always cap first letter and first letter of first word after '.')
+		- random first word (always cap first letter )
 		- In a while statement number of words < song_length
 			- from probalistics, get following word.	
 	- save it 
-	- display it."""
+	- display it.
+
+Special thanks to LaVanessa who inspired the subject and validated the Morrissey-likeness of the result and to Bruno of CodeAcademy for giving some feedback.	
+	"""
 
 import fetch_data
 from markov import MarkovChain
@@ -56,6 +60,9 @@ def get_url_list():
 				except ValueError:
 					print("Try again... like a number please.")
 				else:
+					if nb_sources == 0:
+						print ("Moron. Fine, go away then. ")
+						quit()
 					break
 		else:
 			invalid_answer = True
@@ -65,7 +72,8 @@ def get_url_list():
 def pause():
     programPause = raw_input("Press the <ENTER> key to continue...")
 	
-def list_to_str(text_as_list, length_ave, length_stddev):						#Converts a list of string into a single string, but with each line of different length around an average and stddev
+#Converts a list of string into a single string, but with each line of different length around an average and stddev
+def list_to_str(text_as_list, length_ave, length_stddev):
 	word_cursor = 0
 	text_len = len(text_as_list)
 	text_as_str =  ""
@@ -73,30 +81,36 @@ def list_to_str(text_as_list, length_ave, length_stddev):						#Converts a list 
 		line_length = length_ave + random.randint(-length_stddev,length_stddev)
 		stupid_end = ['the', 'a', 'we', 'and', 'to', 'you', 'he', 'she', 'I', "I'm", "I've","he'll", 'as']
 		try:
-			while text_as_list[word_cursor+line_length-1] in stupid_end:		#makes sure the line does not end stupidly
+			#makes sure the line does not end stupidly
+			while text_as_list[word_cursor+line_length-1] in stupid_end:
 				line_length += 1
-		except IndexError:														#If cursor is beyond list index, then sets at last acceptable word in list
+		#If cursor is beyond list index, then sets at last acceptable word in list
+		except IndexError:
 			i=0
 			while text_as_list[text_len-1-i] in stupid_end:
 				line_length -= 1
 				i += 1
-			line_length = text_len - word_cursor - i							#sets position for last acceptable (i) word
+			#sets position for last acceptable (i) word
+			line_length = text_len - word_cursor - i
 		line = " ".join(text_as_list[word_cursor:word_cursor+line_length])
 		text_as_str += first_cap(line) + "\n"
 		word_cursor += line_length
 	return text_as_str
 
 def first_cap(string):
-	line_cap = string[0].upper()												#Capitalizes first letter of line using slicing and upper().
+	#Capitalizes first letter of line using slicing and upper().
+	line_cap = string[0].upper()
 	line_cap += string[1:len(string)+1]
 	return line_cap
 	
-def get_markov_text(text_as_list, length_ave, length_stddev):					#Generates Markov text using MarkovChain objects and average length. Returns a list.
+#Generates Markov text using MarkovChain objects and average length. Returns a list.
+def get_markov_text(text_as_list, length_ave, length_stddev):
 	markov_text = MarkovChain(text_as_list, 3)												
 	markov_length = length_ave + random.randint(-length_stddev,length_stddev)
 	return markov_text.generate_markov_chain(markov_length)	
-		
-def save_song(title, song):														#Asks user if he wants to save the song and does it if asked to.
+
+#Asks user if he wants to save the song and does it if asked to.	
+def save_song(title, song):
 	while True:
 		save_song_answer = raw_input("Do you want to save this pretty song to a file (y/n)? ")
 		if save_song_answer.lower() == 'y':
@@ -114,7 +128,8 @@ def save_song(title, song):														#Asks user if he wants to save the song
 		else:
 			print ("Just say 'y' or 'n' please. Geez... ")
 
-def cap_word(list,match_list):													#capitalize a word in a list if found in list of word; returns new list
+#capitalize a word in a list if found in list of word; returns new list
+def cap_word(list,match_list):
 	for i in range(len(list)):
 		for word in match_list:
 			if list[i] == word:
