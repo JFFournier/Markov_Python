@@ -5,7 +5,7 @@
 		- If yes, continue to next
 	- Setup Markov probalistics
 		- get complete list of words (unique)
-		- for each word, get the following words.
+		- for each n words prefix, get the following word suffix.
 		- from that, get probability of next word
 	- write lyric
 		- import random.
